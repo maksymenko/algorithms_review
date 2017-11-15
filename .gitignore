@@ -1,0 +1,6 @@
+.gradle/
+.idea/
+algorithms_review.iml
+build/
+gradle/
+out/
