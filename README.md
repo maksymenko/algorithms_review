@@ -9,3 +9,7 @@ gradle test --tests com.sm.algorithms.sort.InsertionSortTest
 ```
 gradle test --tests com.sm.algorithms.sort.MergeSortTopDownTest
 ```
+* Merge Sort Bottom Up (iterative)
+```
+gradle test --tests com.sm.algorithms.sort.MergeSortBottomUpTest
+```
