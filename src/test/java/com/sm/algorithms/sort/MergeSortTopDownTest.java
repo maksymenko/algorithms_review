@@ -10,7 +10,9 @@ public class MergeSortTopDownTest {
 
   @Test
   public void shouldSortArray() throws Exception {
-    String sortedStr = mergeSortTopDown.sort("ahbeprfw");
-    assertThat(sortedStr, equalTo("abefhprw"));
+    assertThat("abcefhpqr", equalTo(mergeSortTopDown.sort("ahbeprfcq")));
+    assertThat("abefhpqr", equalTo(mergeSortTopDown.sort("ahbeprfq")));
+    assertThat("abcefhnpqr", equalTo(mergeSortTopDown.sort("ahbeprfcqn")));
+    assertThat("abcefhnpqrz", equalTo(mergeSortTopDown.sort("ahbepzrfcqn")));
   }
 }

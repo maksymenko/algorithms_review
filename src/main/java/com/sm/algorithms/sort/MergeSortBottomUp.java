@@ -6,15 +6,16 @@ public class MergeSortBottomUp {
     char[] arr = str.toCharArray();
     char[] aux = new char[arr.length];
 
-    for(int len = 2; len <= arr.length; len *= 2) {
-      for(int start = 0; start <= arr.length - len; start+= len) {
-        int end = start + len - 1;
-        if (end >= arr.length) {
-          end = arr.length - 1;
-        }
-        int mid = start + (end - start) /2;
-        merge(arr, start, mid, end, aux);
+    int step = 1;
+    while(step < arr.length) {
+      int start = 0;
+      while(start + step < arr.length) {
+        int mid = start + step - 1;
+        int end = start + 2 * step - 1;
+        merge(arr, start, mid, Math.min(end, arr.length -1), aux);
+        start += 2*step;
       }
+      step *= 2;
     }
     return new String(arr);
   }
