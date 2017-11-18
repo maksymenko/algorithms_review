@@ -1,5 +1,8 @@
 package com.sm.algorithms.sort;
 
+/**
+ * stable, n Lg(n)
+ */
 public class MergeSortBottomUp {
 
   public String sort(String str) {

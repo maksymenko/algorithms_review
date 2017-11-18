@@ -1,5 +1,8 @@
 package com.sm.algorithms.sort;
 
+/**
+ * Stable , n^2  - complexity
+ */
 public class InsertionSort {
 
   public String sort(String str) {
