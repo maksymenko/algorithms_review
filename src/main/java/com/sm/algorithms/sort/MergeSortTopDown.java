@@ -1,5 +1,8 @@
 package com.sm.algorithms.sort;
 
+/**
+ * recursive, stable, n Lg(n)
+ */
 public class MergeSortTopDown {
   public String sort(String str) {
     char[] arr = str.toCharArray();

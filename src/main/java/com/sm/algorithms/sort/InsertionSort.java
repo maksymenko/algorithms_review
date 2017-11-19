@@ -1,7 +1,7 @@
 package com.sm.algorithms.sort;
 
 /**
- * Stable , n^2  - complexity
+ * iterative, stable , n^2
  */
 public class InsertionSort {
 

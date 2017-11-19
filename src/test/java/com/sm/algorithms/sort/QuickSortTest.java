@@ -17,5 +17,7 @@ public class QuickSortTest {
     assertThat(quickSort.sort("ahbepzrfcqn"), equalTo("abcefhnpqrz"));
     assertThat(quickSort.sort("abcdefg"), equalTo("abcdefg"));
     assertThat(quickSort.sort("zyx"), equalTo("xyz"));
+    assertThat(quickSort.sort("zyxwvut"), equalTo("tuvwxyz"));
+    assertThat(quickSort.sort("zyxwvu"), equalTo("uvwxyz"));
   }
 }

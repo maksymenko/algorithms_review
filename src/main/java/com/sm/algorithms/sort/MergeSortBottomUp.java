@@ -1,7 +1,7 @@
 package com.sm.algorithms.sort;
 
 /**
- * stable, n Lg(n)
+ * iterative, stable, n Lg(n)
  */
 public class MergeSortBottomUp {
 

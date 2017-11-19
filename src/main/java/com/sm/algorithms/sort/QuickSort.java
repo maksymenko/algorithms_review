@@ -1,46 +1,62 @@
 package com.sm.algorithms.sort;
 
+import java.util.Random;
+
 /**
- * unstable, n Lg(n)
+ * recursive, unstable, n Lg(n)
  */
-//TODO: add shuffle
 public class QuickSort {
   public String sort(String str) {
     char[] arr = str.toCharArray();
 
-    sort(arr, 0, arr.length - 1);
+    shuffle(arr);
+    sortRec(arr, 0, arr.length - 1);
 
     return new String(arr);
   }
 
-  private void sort(char[] arr, int startIndex, int endIndex) {
-    if (startIndex >= endIndex) {
-      return;
+  private void shuffle(char[] arr) {
+    Random rnd = new Random(System.currentTimeMillis());
+
+    for(int i = 0; i < arr.length; i++) {
+      int index = rnd.nextInt(arr.length);
+      swap(arr, i, index);
     }
-    char pivot = arr[startIndex];
-    int leftCursor = startIndex + 1;
-    int rightCursor = endIndex;
-    while (leftCursor <= rightCursor) {
-      while (leftCursor <= endIndex && arr[leftCursor] <= pivot) {
+  }
+
+  private void sortRec(char[] arr, int start, int end) {
+    if (start < end) {
+      int pivotIndex = partition(arr, start, end);
+      sortRec(arr, start, pivotIndex - 1);
+      sortRec(arr, pivotIndex + 1, end);
+    }
+  }
+
+  private int partition(char[] arr, int start, int end) {
+    char pivot = arr[start];
+    int leftCursor = start + 1;
+    int rightCursor = end;
+    while(leftCursor <= rightCursor) {
+      while (leftCursor <= end && arr[leftCursor] <= pivot) {
         leftCursor++;
       }
-
-      while (rightCursor >= startIndex && arr[rightCursor] > pivot) {
+      while (rightCursor > start && arr[rightCursor] > pivot) {
         rightCursor--;
       }
 
       if (leftCursor < rightCursor) {
-        char tmp = arr[leftCursor];
-        arr[leftCursor] = arr[rightCursor];
-        arr[rightCursor] = tmp;
+        swap(arr, leftCursor, rightCursor);
         leftCursor++;
         rightCursor--;
       }
     }
-    arr[startIndex] = arr[rightCursor];
-    arr[rightCursor] = pivot;
-    sort(arr, startIndex, rightCursor - 1);
-    sort(arr, rightCursor + 1, endIndex);
+    swap(arr, start, rightCursor);
+    return rightCursor;
   }
 
+  private void swap(char[] arr, int first, int second) {
+    char tmp = arr[first];
+    arr[first] = arr[second];
+    arr[second] = tmp;
+  }
 }
