@@ -1,18 +1,17 @@
 package com.sm.algorithms.sort;
 
-import org.junit.Test;
+import static com.google.common.truth.Truth.assertThat;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
+import org.junit.Test;
 
 public class MergeSortTopDownTest {
   private MergeSortTopDown mergeSortTopDown = new MergeSortTopDown();
 
   @Test
   public void shouldSortArray() throws Exception {
-    assertThat("abcefhpqr", equalTo(mergeSortTopDown.sort("ahbeprfcq")));
-    assertThat("abefhpqr", equalTo(mergeSortTopDown.sort("ahbeprfq")));
-    assertThat("abcefhnpqr", equalTo(mergeSortTopDown.sort("ahbeprfcqn")));
-    assertThat("abcefhnpqrz", equalTo(mergeSortTopDown.sort("ahbepzrfcqn")));
+    assertThat(mergeSortTopDown.sort("ahbeprfcq")).isEqualTo("abcefhpqr");
+    assertThat(mergeSortTopDown.sort("ahbeprfq")).isEqualTo("abefhpqr");
+    assertThat(mergeSortTopDown.sort("ahbeprfcqn")).isEqualTo("abcefhnpqr");
+    assertThat(mergeSortTopDown.sort("ahbepzrfcqn")).isEqualTo("abcefhnpqrz");
   }
 }

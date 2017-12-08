@@ -1,9 +1,8 @@
 package com.sm.algorithms.sort;
 
-import org.junit.Test;
+import static com.google.common.truth.Truth.assertThat;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
+import org.junit.Test;
 
 public class QuickSortTest {
 
@@ -11,13 +10,13 @@ public class QuickSortTest {
 
   @Test
   public void shouldSortArray() throws Exception {
-    assertThat(quickSort.sort("ahbeprfcq"), equalTo("abcefhpqr"));
-    assertThat(quickSort.sort("ahbeprfq"), equalTo("abefhpqr"));
-    assertThat(quickSort.sort("ahbeprfcqn"), equalTo("abcefhnpqr"));
-    assertThat(quickSort.sort("ahbepzrfcqn"), equalTo("abcefhnpqrz"));
-    assertThat(quickSort.sort("abcdefg"), equalTo("abcdefg"));
-    assertThat(quickSort.sort("zyx"), equalTo("xyz"));
-    assertThat(quickSort.sort("zyxwvut"), equalTo("tuvwxyz"));
-    assertThat(quickSort.sort("zyxwvu"), equalTo("uvwxyz"));
+    assertThat(quickSort.sort("ahbeprfcq")).isEqualTo("abcefhpqr");
+    assertThat(quickSort.sort("ahbeprfq")).isEqualTo("abefhpqr");
+    assertThat(quickSort.sort("ahbeprfcqn")).isEqualTo("abcefhnpqr");
+    assertThat(quickSort.sort("ahbepzrfcqn")).isEqualTo("abcefhnpqrz");
+    assertThat(quickSort.sort("abcdefg")).isEqualTo("abcdefg");
+    assertThat(quickSort.sort("zyx")).isEqualTo("xyz");
+    assertThat(quickSort.sort("zyxwvut")).isEqualTo("tuvwxyz");
+    assertThat(quickSort.sort("zyxwvu")).isEqualTo("uvwxyz");
   }
 }
