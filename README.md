@@ -5,15 +5,15 @@
 ```
 gradle test --tests com.sm.algorithms.sort.InsertionSortTest
 ```
-* [Merge Sort Top Down](src/main/java/com/sm/algorithms/sort/MergeSortTopDownTest.java) (recursive, stable)
+* [Merge Sort Top Down](src/main/java/com/sm/algorithms/sort/MergeSortTopDown.java) (recursive, stable)
 ```
 gradle test --tests com.sm.algorithms.sort.MergeSortTopDownTest
 ```
-* [Merge Sort Bottom Up](src/main/java/com/sm/algorithms/sort/MergeSortBottomUpTest.java) (iterative, stable)
+* [Merge Sort Bottom Up](src/main/java/com/sm/algorithms/sort/MergeSortBottomUp.java) (iterative, stable)
 ```
 gradle test --tests com.sm.algorithms.sort.MergeSortBottomUpTest
 ```
-* [HeapSort](src/main/java/com/sm/algorithms/sort/HeapSortTest.java) (iterative, stable)
+* [HeapSort](src/main/java/com/sm/algorithms/sort/HeapSort.java) (iterative, stable)
 ```
 gradle test --tests com.sm.algorithms.sort.HeapSortTest
 ```
