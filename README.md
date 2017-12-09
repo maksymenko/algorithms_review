@@ -17,3 +17,7 @@ gradle test --tests com.sm.algorithms.sort.MergeSortBottomUpTest
 ```
 gradle test --tests com.sm.algorithms.sort.HeapSortTest
 ```
+* [CountingSort](src/main/java/com/sm/algorithms/sort/CountingSort.java) (iterative, stable)
+```
+gradle test --tests com.sm.algorithms.sort.CountingSortTest
+```
