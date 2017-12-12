@@ -21,3 +21,6 @@ gradle test --tests HeapSortTest
 ```
 gradle test --tests CountingSortTest
 ```
+
+### Draph
+* [Dfs](src/main/java/com/sm/algorithms/graph/dfs.java) (Traverse, pathTo)
