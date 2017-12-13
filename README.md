@@ -31,5 +31,8 @@ gradle test --tests DfsTest
 ```
 gradle test --tests DigraphDfsCycleDetectionTest
 ```
-
+* [Bfs](src/main/java/com/sm/algorithms/graph/Bfs.java) (Traverse, pathTo)
+```
+gradle test --tests BfsTest
+```
 
