@@ -23,4 +23,13 @@ gradle test --tests CountingSortTest
 ```
 
 ### Draph
-* [Dfs](src/main/java/com/sm/algorithms/graph/dfs.java) (Traverse, pathTo)
+* [Dfs](src/main/java/com/sm/algorithms/graph/Dfs.java) (Traverse, pathTo)
+```
+gradle test --tests DfsTest
+```
+* [Digraph DFS cycle detectionfs](src/main/java/com/sm/algorithms/graph/DigraphDfsCycleDetection.java) (Cycle detection, Traverse, pathTo)
+```
+gradle test --tests DigraphDfsCycleDetectionTest
+```
+
+

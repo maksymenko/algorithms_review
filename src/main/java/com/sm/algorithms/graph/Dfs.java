@@ -1,5 +1,7 @@
 package com.sm.algorithms.graph;
 
+import com.google.common.base.Preconditions;
+
 import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Deque;
@@ -27,6 +29,8 @@ public class Dfs {
   }
 
   public void addEdge(int first, int second) {
+    Preconditions.checkArgument(first < count);
+    Preconditions.checkArgument(second < count);
     adjacencyList[first].add(second);
     adjacencyList[second].add(first);
   }
@@ -56,7 +60,7 @@ public class Dfs {
     for(cursor = destVertex; edgeTo[cursor] != -1; cursor = edgeTo[cursor]) {
       path.push(cursor);
     }
-    path.add(cursor);
+    path.push(cursor);
     return path;
   }
 

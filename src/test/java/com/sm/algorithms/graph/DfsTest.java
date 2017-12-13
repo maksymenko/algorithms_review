@@ -37,6 +37,6 @@ public class DfsTest {
   @Test
   public void shouldFindPath() throws Exception {
     dfs.dfs(0);
-    assertThat(dfs.getPathTo(3)).containsExactly(0, 6, 4, 5, 3);
+    assertThat(dfs.getPathTo(3)).containsExactly(0, 6, 4, 5, 3).inOrder();
   }
 }
