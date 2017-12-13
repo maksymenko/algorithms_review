@@ -35,4 +35,7 @@ gradle test --tests DigraphDfsCycleDetectionTest
 ```
 gradle test --tests BfsTest
 ```
-
+* [TopologicalSort](src/main/java/com/sm/algorithms/graph/TopologicalSort.java) (Creates depencency sequence, no cycle detection)
+```
+gradle test --tests TopologicalSortTest
+```
