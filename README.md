@@ -39,3 +39,7 @@ gradle test --tests BfsTest
 ```
 gradle test --tests TopologicalSortTest
 ```
+* [DijkstraShortestPath](src/main/java/com/sm/algorithms/graph/DijkstraShortestPath.java) (Find shortest path, no cycle detection)
+```
+gradle test --tests DijkstraShortestPathTest
+```
