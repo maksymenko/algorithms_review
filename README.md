@@ -43,3 +43,6 @@ gradle test --tests TopologicalSortTest
 ```
 gradle test --tests DijkstraShortestPathTest
 ```
+
+
+TODO: Add cycle detaction to Dijkstra's shortest path alg

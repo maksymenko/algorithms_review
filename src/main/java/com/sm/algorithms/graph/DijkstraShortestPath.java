@@ -50,12 +50,14 @@ public class DijkstraShortestPath {
   }
 
   public Collection<Integer> getPathTo(int src, int dest) {
-
+    // Initialize resources.
     Arrays.fill(distTo, Double.POSITIVE_INFINITY);
     Arrays.fill(edgeTo, -1);
     Arrays.fill(marked, false);
 
+    // TODO: Loop detection.
 
+    // Calculate shortest paths to all vetices.
     distTo[src] = 0;
     pq.add(new Dist(0, 0.0));
     for (int i = 0; i < count; i++) {
@@ -64,7 +66,7 @@ public class DijkstraShortestPath {
       }
     }
 
-
+    // Build path to given vertex.
     Deque path = new ArrayDeque<>();
     for (int vertex = dest; vertex != src && vertex != -1; vertex = edgeTo[vertex]) {
       path.push(vertex);
