@@ -27,7 +27,7 @@ gradle test --tests CountingSortTest
 ```
 gradle test --tests DfsTest
 ```
-* [Digraph DFS cycle detectionfs](src/main/java/com/sm/algorithms/graph/DigraphDfsCycleDetection.java) (Cycle detection, Traverse, pathTo)
+* [Digraph DFS cycle detection](src/main/java/com/sm/algorithms/graph/DigraphDfsCycleDetection.java) (Cycle detection, Traverse, pathTo)
 ```
 gradle test --tests DigraphDfsCycleDetectionTest
 ```
@@ -39,9 +39,15 @@ gradle test --tests BfsTest
 ```
 gradle test --tests TopologicalSortTest
 ```
-* [DijkstraShortestPath](src/main/java/com/sm/algorithms/graph/DijkstraShortestPath.java) (Find shortest path, no cycle detection)
+* [DijkstraShortestPath](src/main/java/com/sm/algorithms/graph/DijkstraShortestPath.java) 
+  * Find shortest path, no cycle detection (see cycle detection in DFS digraph cycle detection above), E logV complexity. 
 ```
 gradle test --tests DijkstraShortestPathTest
+```
+* [BellmanFordShortestPath](src/main/java/com/sm/algorithms/graph/BellmanFordShortestPath.java) 
+  * Find shortest path, negative cycle detection, V*E complexity. 
+```
+gradle test --tests BellmanFordShortestPathTest
 ```
 
 
