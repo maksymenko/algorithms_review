@@ -19,6 +19,10 @@ public class Node {
     return right;
   }
 
+  public void setValue(int value) {
+    this.value = value;
+  }
+
   public Node getLeft() {
     return left;
   }
@@ -29,5 +33,10 @@ public class Node {
 
   public int getValue() {
     return value;
+  }
+
+  @Override
+  public String toString() {
+    return " " + value ;
   }
 }
