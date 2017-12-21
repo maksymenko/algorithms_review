@@ -24,26 +24,59 @@ public class RodCutMaxPrice {
     return maxP;
   }
 
+
   public int findBottomUp(int len) {
-    dp.put(1, prices[0]);
-    System.out.println(">> bottomUp for " + 1 + "  max: " + dp.get(1));
-    for(int i = 2; i <= len; i++) {
-      int maxP = prices[i-1];
-      for(int j = 1; j < i; j++) {
-        maxP = Math.max(maxP, prices[i - j - 1] + dp.get(j));
+    dp.put(0, 0);
+
+    for(int i = 1; i <= len; i++) {
+      int max = Integer.MIN_VALUE;
+      for(int j = 0; j < i; j++) {
+        max = Math.max(max, prices[j] + dp.get(i - j - 1));
       }
-      dp.put(i, maxP);
-      System.out.println(">> bottomUp for " + i + "  max: " + dp.get(i));
+      dp.put(i, max);
+      System.out.println(">> bottomUp for " + i + "  max: " + max);
     }
     return dp.get(len);
   }
+
+  public int findSolutionBottomUp(int len) {
+    dp.put(0, 0);
+    for (int i = 1; i <= len; i++) {
+      int max = Integer.MIN_VALUE;
+      for (int j = 0; j < i; j++) {
+        int newMax = prices[j] + dp.get(i - j - 1);
+        if (newMax > max) {
+          max = newMax;
+          dpSolution.put(i, j+1);
+        }
+      }
+      dp.put(i, max);
+      System.out.println(">> findSolutionBottomUp for " + i + " max: " + max);
+    }
+
+    // Show solution.
+    System.out.print(">> Solution:");
+    int cursor = len;
+    while(cursor > 0) {
+      int step = dpSolution.get(cursor);
+      System.out.print(" " + step);
+      cursor -= step;
+    }
+    System.out.println();
+
+    return dp.get(len);
+  }
+
+
 
   public static void main(String[] args) {
     RodCutMaxPrice rodCutMaxPrice = new RodCutMaxPrice();
     System.out.println(">>> starting...");
     System.out.println(">> max by TopDown for 4 is: " + rodCutMaxPrice.findTopDown(4));
-
     System.out.println(">> max by BottomUp for 4 is: " + rodCutMaxPrice.findBottomUp(4));
+    System.out.println(">> max by BottomUp for 4 is: " + rodCutMaxPrice.findBottomUp2(4));
+    System.out.println(">> max by FindSolutionBottomUp for 4 is: " + rodCutMaxPrice.findSolutionBottomUp(9));
+
   }
 
 }

@@ -27,6 +27,9 @@ gradle test --tests com.sm.algorithms.sort.CountingSortTest
 ```
 gradle test --tests com.sm.algorithms.tree.BstCheckerTest
 ```
+* [Print tree by line](src/main/java/com/sm/algorithms/tree/TreeVisualizer.java) 
+* [Merge two trees](src/main/java/com/sm/algorithms/tree/TreeMerger.java) 
+
 
 ### Draph
 * [Dfs](src/main/java/com/sm/algorithms/graph/Dfs.java) (Traverse, pathTo)
@@ -56,5 +59,8 @@ gradle test --tests com.sm.algorithms.graph.DijkstraShortestPathTest
 gradle test --tests com.sm.algorithms.graph.BellmanFordShortestPathTest
 ```
 
+### Dynamic programming
+* [Find optimal RodCut to give max price](src/main/java/com/sm/algorithms/dp/RodCutMaxPrice.java) 
 
+---
 TODO: Add cycle detection to Dijkstra's shortest path alg
