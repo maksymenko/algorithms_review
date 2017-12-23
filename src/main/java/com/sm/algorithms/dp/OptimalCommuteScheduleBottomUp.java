@@ -12,7 +12,7 @@ import java.util.Map;
  * Each day commute time is different.
  * Find minim total commute time and days which gives minimal time.
  */
-public class MinTimePathScheduleBottomUp {
+public class OptimalCommuteScheduleBottomUp {
   private int[] timeForDay;
   private Map<Integer, Integer> dp = new HashMap<>();
   private Map<Integer, Integer> solution = new HashMap<>();
@@ -84,7 +84,7 @@ public class MinTimePathScheduleBottomUp {
 
   public static void main(String[] args) {
     System.out.println(">>> min time schedule starting..");
-    MinTimePathScheduleBottomUp schedule = new MinTimePathScheduleBottomUp();
+    OptimalCommuteScheduleBottomUp schedule = new OptimalCommuteScheduleBottomUp();
     schedule.findMinTimePath(new int[]{10, 15, 7, 10, 5, 4, 8});
     schedule.findMinTimePath(new int[]{14, 17, 10, 27, 3, 29, 32});
   }

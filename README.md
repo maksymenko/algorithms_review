@@ -61,6 +61,8 @@ gradle test --tests com.sm.algorithms.graph.BellmanFordShortestPathTest
 
 ### Dynamic programming
 * [Find optimal RodCut to give max price](src/main/java/com/sm/algorithms/dp/RodCutMaxPrice.java) 
+* [Optimal Commute Schedule](src/main/java/com/sm/algorithms/dp/OptimalCommuteScheduleBottomUp.java) 
+
 
 ---
 TODO: Add cycle detection to Dijkstra's shortest path alg
