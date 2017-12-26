@@ -13,19 +13,38 @@ public class KnapsackBottomUp {
         " weights: " + Arrays.toString(w));
 
     int[][] dp = new int[v.length][capacity + 1];
+    int[] solution = new int[capacity + 1];
+    Arrays.fill(solution, 0);
 
     for (int i = 0; i < v.length; i++) {
       Arrays.fill(dp[i], 0);
-      for (int j = 0; j <= capacity; j += 1 ) {
+      for (int j = 0; j <= capacity; j += 10) {
         int leftCapacity = j - w[i];
         if (leftCapacity >= 0) {
-           if (i > 0) {
-            dp[i][j] = Math.max(dp[i - 1][leftCapacity] + v[i], dp[i-1][j]);
+          if (i > 0) {
+            int newMax = dp[i - 1][leftCapacity] + v[i];
+            if (newMax > dp[i - 1][j]) {
+              dp[i][j] = newMax;
+              solution[j] = w[i];
+            } else {
+              dp[i][j] = dp[i - 1][j];
+            }
           } else {
             dp[i][j] = v[i];
+            solution[j] = w[i];
+          }
+        } else {
+          if (i > 0) {
+            dp[i][j] = dp[i - 1][j];
           }
         }
       }
+    }
+
+    int curWeight = capacity;
+    while(solution[curWeight] > 0 ) {
+      System.out.println(">> " + solution[curWeight]);
+      curWeight -= solution[curWeight];
     }
 
     return dp[v.length - 1][capacity];
@@ -34,6 +53,6 @@ public class KnapsackBottomUp {
   public static void main(String[] args) {
     System.out.println(">> KnapsackBottomUp staring..");
     KnapsackBottomUp knapsack = new KnapsackBottomUp();
-    System.out.println(knapsack.findMax(50, new int[]{60, 100, 120}, new int[]{10, 20, 30}));
+    System.out.println(knapsack.findMax(50, new int[]{100, 120, 60}, new int[]{20, 30, 10}));
   }
 }
