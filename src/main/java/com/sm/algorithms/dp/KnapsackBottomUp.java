@@ -16,23 +16,19 @@ public class KnapsackBottomUp {
 
     for (int i = 0; i < v.length; i++) {
       Arrays.fill(dp[i], 0);
-      for (int j = 0; j <= capacity; j += 10) {
+      for (int j = 0; j <= capacity; j += 1 ) {
         int leftCapacity = j - w[i];
         if (leftCapacity >= 0) {
-          int max = 0;
-          for (int k = 0; k < i; k++) {
-            max = Math.max(max, dp[k][leftCapacity]);
+           if (i > 0) {
+            dp[i][j] = Math.max(dp[i - 1][leftCapacity] + v[i], dp[i-1][j]);
+          } else {
+            dp[i][j] = v[i];
           }
-          dp[i][j] = v[i] + max;
         }
       }
     }
 
-    int max = dp[0][capacity];
-    for (int i = 1; i < v.length; i++) {
-      max = Math.max(max, dp[i][capacity]);
-    }
-    return max;
+    return dp[v.length - 1][capacity];
   }
 
   public static void main(String[] args) {
