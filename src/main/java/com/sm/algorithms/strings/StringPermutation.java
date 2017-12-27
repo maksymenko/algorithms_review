@@ -28,7 +28,6 @@ public class StringPermutation {
       StringBuilder sb = new StringBuilder(str);
       permutationsRecursive(option + str.charAt(i), sb.deleteCharAt(i).toString(), result);
     }
-
   }
 
   public List<String> permutationsIterative(String str) {
