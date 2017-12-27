@@ -12,31 +12,25 @@ public class KnapsackBottomUp {
         " values " + Arrays.toString(v) +
         " weights: " + Arrays.toString(w));
 
-    int[][] dp = new int[v.length][capacity + 1];
+    int[][] dp = new int[v.length + 1][capacity + 1];
     int[] solution = new int[capacity + 1];
     Arrays.fill(solution, 0);
+    Arrays.fill(dp[0], 0);
 
-    for (int i = 0; i < v.length; i++) {
+    for (int i = 1; i <= v.length; i++) {
       Arrays.fill(dp[i], 0);
       for (int j = 0; j <= capacity; j += 10) {
-        int leftCapacity = j - w[i];
+        int leftCapacity = j - w[i - 1];
         if (leftCapacity >= 0) {
-          if (i > 0) {
-            int newMax = dp[i - 1][leftCapacity] + v[i];
-            if (newMax > dp[i - 1][j]) {
-              dp[i][j] = newMax;
-              solution[j] = w[i];
-            } else {
-              dp[i][j] = dp[i - 1][j];
-            }
+          int newMax = dp[i - 1][leftCapacity] + v[i - 1];
+          if (newMax > dp[i - 1][j]) {
+            dp[i][j] = newMax;
+            solution[j] = w[i - 1 ];
           } else {
-            dp[i][j] = v[i];
-            solution[j] = w[i];
-          }
-        } else {
-          if (i > 0) {
             dp[i][j] = dp[i - 1][j];
           }
+        } else {
+          dp[i][j] = dp[i - 1][j];
         }
       }
     }
