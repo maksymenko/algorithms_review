@@ -25,6 +25,6 @@ public class DijkstraShortestPathTest {
     shortestPath.addEdge(6, 0, 0.58);
     shortestPath.addEdge(6, 4, 0.93);
 
-   assertThat(shortestPath.getPathTo(0, 6)).containsExactly(0, 2, 7, 3, 6).inOrder();
+   assertThat(shortestPath.findPathTo(0, 6)).containsExactly(0, 2, 7, 3, 6).inOrder();
   }
 }

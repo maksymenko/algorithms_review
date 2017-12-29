@@ -8,6 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
+/**
+ * Complexity: E LogV
+ */
 public class DijkstraShortestPath {
   private List<Edge>[] adjList;
   private int[] edgeTo;
@@ -31,6 +34,33 @@ public class DijkstraShortestPath {
     }
   }
 
+  public Collection<Integer> findPathTo(int src, int dest) {
+    // Initialize resources.
+    Arrays.fill(distTo, Double.POSITIVE_INFINITY);
+    Arrays.fill(edgeTo, -1);
+    Arrays.fill(marked, false);
+
+    // TODO: Loop detection.
+
+    // Calculate shortest paths to all vetices.
+    distTo[src] = 0;
+    pq.add(new Dist(0, 0.0));
+    for (int i = 0; i < count; i++) {
+      if (!pq.isEmpty()) {
+        relax(pq.poll().vertex);
+      }
+    }
+
+    // Reconstruct path to target vertex.
+    Deque path = new ArrayDeque<>();
+    for (int vertex = dest; vertex != src && vertex != -1; vertex = edgeTo[vertex]) {
+      path.push(vertex);
+    }
+    path.push(src);
+
+    return path;
+  }
+
   public void addEdge(int src, int dest, double weight) {
     adjList[src].add(new Edge(src, dest, weight));
   }
@@ -48,34 +78,6 @@ public class DijkstraShortestPath {
       }
     }
   }
-
-  public Collection<Integer> getPathTo(int src, int dest) {
-    // Initialize resources.
-    Arrays.fill(distTo, Double.POSITIVE_INFINITY);
-    Arrays.fill(edgeTo, -1);
-    Arrays.fill(marked, false);
-
-    // TODO: Loop detection.
-
-    // Calculate shortest paths to all vetices.
-    distTo[src] = 0;
-    pq.add(new Dist(0, 0.0));
-    for (int i = 0; i < count; i++) {
-      if (!pq.isEmpty()) {
-        relax(pq.poll().vertex);
-      }
-    }
-
-    // Build path to given vertex.
-    Deque path = new ArrayDeque<>();
-    for (int vertex = dest; vertex != src && vertex != -1; vertex = edgeTo[vertex]) {
-      path.push(vertex);
-    }
-    path.push(src);
-
-    return path;
-  }
-
 
   private static class Dist implements Comparable<Dist> {
     private int vertex;
@@ -128,7 +130,7 @@ public class DijkstraShortestPath {
     shortestPath.addEdge(6, 0, 0.58);
     shortestPath.addEdge(6, 4, 0.93);
 
-    System.out.println(shortestPath.getPathTo(0, 6));
+    System.out.println(shortestPath.findPathTo(0, 6));
 
   }
 }
