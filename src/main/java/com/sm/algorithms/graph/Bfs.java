@@ -9,6 +9,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
+// Bi-directed graph
 public class Bfs {
   private int count;
   private List<Integer>[] adjList;
