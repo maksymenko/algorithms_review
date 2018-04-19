@@ -50,7 +50,6 @@ public class TopologicalSort {
     stack.push(vertex);
   }
 
-
   public Collection<Integer> sort() {
     for(int i = 0; i < count; i++) {
       dfs(i);
