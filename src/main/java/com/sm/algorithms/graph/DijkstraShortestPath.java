@@ -40,7 +40,7 @@ public class DijkstraShortestPath {
     Arrays.fill(edgeTo, -1);
     Arrays.fill(marked, false);
 
-    // TODO: Loop detection.
+    // TODO: Cycle detection.
 
     // Calculate shortest paths to all vetices.
     distTo[src] = 0;
