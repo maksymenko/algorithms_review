@@ -1,4 +1,4 @@
-package com.sm.misc_1812;
+package com.sm.misc_2;
 
 public class Lcs {
 
