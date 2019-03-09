@@ -5,3 +5,5 @@ build/
 gradle/
 out/
 RESOURCES.md
+src/main/main.iml
+src/test/test.iml
