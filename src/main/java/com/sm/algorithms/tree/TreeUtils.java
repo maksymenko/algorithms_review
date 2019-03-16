@@ -1,5 +1,8 @@
-package com.sm.misc_3;
+package com.sm.algorithms.tree;
 
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class TreeUtils {
 
@@ -16,6 +19,7 @@ public class TreeUtils {
   private TreeNode root;
 
 
+  /////////////////// Floor //////////////
   public TreeUtils(TreeNode root) {
     this.root = root;
   }
@@ -40,6 +44,7 @@ public class TreeUtils {
   }
 
 
+  /////////////////// Ceil //////////////
   public int ceil(double x) {
     TreeNode ceilNode = ceil(root, x);
     return ceilNode == null? -1 : ceilNode.val;
@@ -61,6 +66,8 @@ public class TreeUtils {
     return ceilNode == null ? node : ceilNode;
   }
 
+
+  /////////////////// Sorted seq less then target //////////////
   public void inOrderSmaller(double value) {
     inOrderSmaller(root, 61);
   }
@@ -77,11 +84,42 @@ public class TreeUtils {
     } else {
       inOrderSmaller(node.left, value);
     }
-
-
-
   }
 
+  /////////////////// Serialize //////////////
+
+  public Deque<String> serialize() {
+    Deque<String> q = new ArrayDeque<>();
+    serialize(q, root);
+    return q;
+  }
+
+  private void serialize(Deque<String> q, TreeNode node){
+    if (node == null){
+      q.add("null");
+      return;
+    }
+    q.add(Integer.toString(node.val));
+    serialize(q, node.left);
+    serialize(q, node.right);
+  }
+
+
+  public TreeNode deserialize(Deque<String> q) {
+    if (q.isEmpty()) {
+      return null;
+    }
+    String nodeStr = q.poll();
+    if (nodeStr == "null") {
+      return null;
+    }
+
+    TreeNode node = new TreeNode(Integer.parseInt(nodeStr));
+
+    node.left = deserialize(q);
+    node.right = deserialize(q);
+    return node;
+  }
 
   public static void main(String[] args) {
     TreeNode root = new TreeNode(80);
@@ -94,17 +132,24 @@ public class TreeUtils {
     root.left.left.right = new TreeNode(40);
 
     root.left.right.left = new TreeNode(60);
-    root.left.right.left.right = new TreeNode(65);
+    root.left.right.right = new TreeNode(65);
 
-    TreeUtils treeFloor = new TreeUtils(root);
+    TreeUtils treeUtils = new TreeUtils(root);
 
-    System.out.println(">>>> floor: " + treeFloor.floor(72));
+    System.out.println(">>>> floor: " + treeUtils.floor(72));
 
-    System.out.println(">>>> ceil: " + treeFloor.ceil(72));
+    System.out.println(">>>> ceil: " + treeUtils.ceil(72));
 
     System.out.println(">>>> inOrderSmaller: " );
-    treeFloor.inOrderSmaller(72);
+    treeUtils.inOrderSmaller(72);
 
+
+    Deque<String> ser = treeUtils.serialize();
+    System.out.println(">>>> serialize: " + ser);
+
+    TreeNode node = treeUtils.deserialize(ser);
+
+    System.out.println(">> des: " + node);
 
   }
 }
