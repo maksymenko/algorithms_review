@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 
 
 /*
-Uses Dijcstra's shortest path  alg, but calculates all possible dist to each node by different number of stops.
+Uses Dijkstra's shortest path  alg, but calculates all possible dist to each node by different number of stops.
 PQ always returns min dist , so once dst reached it is min dist to dst.
  */
 public class CheapestFlightWithStops {
@@ -61,8 +61,5 @@ public class CheapestFlightWithStops {
 
     int res = cheapestFlightWithStops.findCheapestPrice(3,
         new int[][]{{0,1,100},{1,2,100},{0,2,500}}, 0, 2, 1);
-
-    System.out.println(">>>>> " + res);
-
   }
 }

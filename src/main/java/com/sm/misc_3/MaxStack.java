@@ -5,7 +5,12 @@ import java.util.PriorityQueue;
 
 public class MaxStack {
     private LinkedList<Node> stack = new LinkedList<>();
-    private PriorityQueue<Node> pq = new PriorityQueue<>((x1, x2) -> Integer.compare(x1.value, x2.value) * (-1));
+    private PriorityQueue<Node> pq = new PriorityQueue<>((x1, x2) -> {
+//        if (x1.value == x2.value) {
+//            return 0;
+//        }
+        return x2.value > x1.value ? 1 : -1;
+    });
 
     private class Node {
         int value;
