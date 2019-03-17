@@ -59,4 +59,10 @@ public class QuickSort {
     arr[first] = arr[second];
     arr[second] = tmp;
   }
+
+  public static void main(String[] args) {
+    QuickSort quickSort1 = new QuickSort();
+    System.out.println(">>>> quick sort");
+    System.out.println(">>> " + quickSort1.sort("8739675429"));
+  }
 }
