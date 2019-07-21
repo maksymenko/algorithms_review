@@ -1,6 +1,5 @@
 package com.sm.misc_3;
 
-import sun.misc.Queue;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
