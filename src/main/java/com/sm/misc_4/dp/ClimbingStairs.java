@@ -21,9 +21,9 @@ public class ClimbingStairs {
     public static void main(String[] args) {
         ClimbingStairs cs = new ClimbingStairs();
 
-        System.out.println(" >>>3 " + cs.cnt(3));
-        System.out.println(" >>>4 " + cs.cnt(4));
-        System.out.println(" >>>5 " + cs.cnt(5));
+        System.out.println(" >>> input 3 " + cs.cnt(3));
+        System.out.println(" >>>input 4 " + cs.cnt(4));
+        System.out.println(" >>>input 5 " + cs.cnt(5));
 
     }
 }
