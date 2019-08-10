@@ -88,6 +88,11 @@ public class TreeUtils {
 
   /////////////////// Serialize //////////////
 
+  // Collect values into queue in  pre-order traverse
+  // and use null for empty nodes  null nodes don't have children.
+  // Optimizations:
+  //  * each leaf node has two null (two indicator)
+  //  *
   public Deque<String> serialize() {
     Deque<String> q = new ArrayDeque<>();
     serialize(q, root);
@@ -105,6 +110,7 @@ public class TreeUtils {
   }
 
 
+  // Recursively set values in pre-order traverse way.
   public TreeNode deserialize(Deque<String> q) {
     if (q.isEmpty()) {
       return null;
@@ -124,15 +130,15 @@ public class TreeUtils {
   public static void main(String[] args) {
     TreeNode root = new TreeNode(80);
     root.left = new TreeNode(50);
-    root.right = new TreeNode(90);
-
-    root.left.left = new TreeNode(30);
-    root.left.right = new TreeNode(70);
-
-    root.left.left.right = new TreeNode(40);
-
-    root.left.right.left = new TreeNode(60);
-    root.left.right.right = new TreeNode(65);
+//    root.right = new TreeNode(90);
+//
+//    root.left.left = new TreeNode(30);
+//    root.left.right = new TreeNode(70);
+//
+//    root.left.left.right = new TreeNode(40);
+//
+//    root.left.right.left = new TreeNode(60);
+//    root.left.right.right = new TreeNode(75);
 
     TreeUtils treeUtils = new TreeUtils(root);
 
