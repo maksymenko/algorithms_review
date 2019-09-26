@@ -3,6 +3,7 @@ package com.sm.algorithms.tree;
 public class Node {
   private Node left;
   private Node right;
+  public Node next;
   private int value;
 
   public Node(int value) {
@@ -19,6 +20,11 @@ public class Node {
     return right;
   }
 
+  public Node addNext(int value) {
+    next = new Node(value);
+    return next;
+  }
+
   public void setValue(int value) {
     this.value = value;
   }
@@ -29,6 +35,10 @@ public class Node {
 
   public Node getRight() {
     return right;
+  }
+
+  public Node getNext() {
+    return next;
   }
 
   public int getValue() {

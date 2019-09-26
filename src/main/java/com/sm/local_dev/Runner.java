@@ -1,4 +1,4 @@
-package com.sm;
+package com.sm.local_dev;
 
 import java.util.*;
 import java.util.stream.Collectors;

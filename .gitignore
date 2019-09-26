@@ -7,7 +7,5 @@ out/
 RESOURCES.md
 src/main/main.iml
 src/test/test.iml
-src/main/java/com/sm/Runner.java
-src/main/java/com/sm/Solution.java
-src/main/java/com/sm/RunnerDp.java
+src/main/java/com/sm/local_dev/
 
