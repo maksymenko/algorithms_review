@@ -54,7 +54,5 @@ public class LRUCache {
         lruCache.print();
         lruCache.put(5, 5);
         lruCache.print();
-
-
     }
 }
