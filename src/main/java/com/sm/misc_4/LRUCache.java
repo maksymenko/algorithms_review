@@ -26,6 +26,8 @@ public class LRUCache {
     public void put(int key, int value) {
         lru.remove(key);
         lru.put(key, value);
+
+//        lru.entrySet().iterator().remove();
     }
 
     public void print() {
