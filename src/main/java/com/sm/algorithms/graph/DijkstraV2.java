@@ -1,7 +1,5 @@
 package com.sm.algorithms.graph;
 
-
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,45 +22,20 @@ public class DijkstraV2 {
     pq.add(new int[]{src, 0});
 
     while(!pq.isEmpty()) {
-      for(int[] arr: pq) {
-        System.out.print(" " + Arrays.toString(arr));
-      }
-      System.out.println();
-
-
       int[] top = pq.poll();
 
       if (dist.getOrDefault(top[0], Integer.MAX_VALUE)  < top[1]){
         continue;
       }
 
-
-      System.out.println(">>>> peek " + top[0] + " weight: " + top[1]);
-
-      if (top[0] == dst) {
-        System.out.println(">>>> Min dist from " + src + " to " + dst + " is : " + top[1]);
-      }
-
       graph.getOrDefault(top[0], new HashMap<>()).forEach((vertex, weight) -> {
         int newDist = top[1] + weight;
-        System.out.println(">>> from " + top[0] + " to " + vertex + " weight: " + newDist);
         if (dist.getOrDefault(vertex, Integer.MAX_VALUE) > newDist) {
           dist.put(vertex, newDist);
           pq.add(new int[]{vertex, top[1] + weight});
-          System.out.println(">>> updated");
         }
-
-
-
       });
-      System.out.println("");
     }
-
-    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>");
-    for(int[] arr: pq) {
-      System.out.print(" " + Arrays.toString(arr));
-    }
-    System.out.println();
 
   }
 
