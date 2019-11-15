@@ -13,7 +13,7 @@ public class DijkstraV3 {
     public void traverse(int src, int nodeCount) {
         Map<Integer, Integer> dist = new HashMap<>();
         Set<Integer> visited = new HashSet<>();
-        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a->a[1]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a->a[1]));
 
         dist.put(src, 0);
         pq.add(new int[]{src, 0});
