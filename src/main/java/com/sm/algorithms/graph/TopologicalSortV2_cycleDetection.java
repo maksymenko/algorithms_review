@@ -60,5 +60,8 @@ public class TopologicalSortV2_cycleDetection {
         //topologicalSort.addEdge("4", "0");
 
         System.out.println(">>> seq: " + topologicalSort.computeSeqFrom("8"));
+
+
+        System.out.println(">>>" + "123".substring(0, 1));
     }
 }

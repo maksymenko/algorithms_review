@@ -59,6 +59,7 @@ public class Lcs {
     Lcs lcs = new Lcs();
     System.out.println(">>> Lcs length " + lcs.findCommonSequence("BDCABA", "ABCBDAB"));
     System.out.println(">>> Lcs length " + lcs.findCommonSequence("ABCBDAB", "BDCABA"));
+    System.out.println(">>> Lcs length " + lcs.findCommonSequence("ABABA", "BAAAA"));
 
   }
 }
