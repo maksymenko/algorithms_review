@@ -13,7 +13,7 @@ public class QuickSortV2 {
         return new String(arr);
     }
 
-    private void quick(char[] arr, int start, int end) {
+    private void quick(char[] arr, int start, int end)  {
         if (start >= end) {
             return;
         }
